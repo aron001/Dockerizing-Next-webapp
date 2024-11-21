@@ -1,23 +1,23 @@
-# Step 1: Use the official Node.js image as a base
+# Step 1: Use the official Node.js slim image
 FROM node:20-slim
 
-# Step 2: Set the working directory inside the container
+# Step 2: Set the working directory
 WORKDIR /app
 
-# Step 3: Copy package.json and package-lock.json to install dependencies
+# Step 3: Copy only package.json and package-lock.json for caching dependencies
 COPY package*.json ./
 
-# Step 4: Install dependencies (we’ll use npm install for this case)
-RUN npm install --prefer-offline --no-audit --progress=false
+# Step 4: Install dependencies
+RUN npm install --production --verbose
 
-# Step 5: Copy all other files in the repository to the container
+# Step 5: Copy the rest of the application files
 COPY . .
 
 # Step 6: Build the Next.js app
 RUN npm run build
 
-# Step 7: Expose the port that Next.js will use (default is 3000)
+# Step 7: Expose the port used by Next.js
 EXPOSE 3000
 
-# Step 8: Run the app in production mode
+# Step 8: Start the Next.js application
 CMD ["npm", "start"]
