@@ -1,0 +1,25 @@
+# Node modules
+/node_modules
+
+# Next.js build and output directories
+/.next/
+/out/
+
+# Environment files
+.env*
+
+# Miscellaneous files
+.DS_Store
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Git-related files
+.git
+.gitignore
+
+# TypeScript build info
+*.tsbuildinfo
+next-env.d.ts
