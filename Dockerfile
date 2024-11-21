@@ -7,8 +7,8 @@ WORKDIR /app
 # Step 3: Copy package.json and package-lock.json to install dependencies
 COPY package*.json ./
 
-# Step 4: Install dependencies (npm ci)
-RUN npm install
+# Step 4: Install dependencies (we’ll use npm install for this case)
+RUN npm install --prefer-offline --no-audit --progress=false
 
 # Step 5: Copy all other files in the repository to the container
 COPY . .
