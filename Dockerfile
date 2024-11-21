@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Step 4: Install dependencies (npm ci)
-RUN npm ci --prefer-offline --no-audit --progress=false
+RUN npm install
 
 # Step 5: Copy all other files in the repository to the container
 COPY . .
